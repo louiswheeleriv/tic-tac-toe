@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'devise'
+gem 'graphql'
 gem 'pg'
 
 group :development, :test do
@@ -45,6 +46,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'annotate'
+  gem 'graphiql-rails'
 end
 
 group :test do
