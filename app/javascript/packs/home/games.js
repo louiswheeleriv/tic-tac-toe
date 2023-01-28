@@ -20,7 +20,6 @@ const listGamesQuery = gql`
     ) {
       id
       status
-      openPlayerSlots
       createdAt
       users {
         id
@@ -41,7 +40,7 @@ function GamesTable() {
 	});
 	return (
 		<div className="table-wrapper">
-			<table className="table">
+			<table className="table" id="games-table">
 				<thead>
 					<tr>
 						<th>Created</th>
@@ -60,8 +59,7 @@ function GamesTable() {
 function gameRow(game) {
 	return (
 		<tr key={game.id}>
-			<td>{game.createdAt}</td>
-			{/* <td><a href={"unit/" + unitModel.unit.id}>{unitModel.unit.name}</a></td> */}
+			<td>{new Date(game.createdAt).toLocaleString()}</td>
 			<td>{game.status}</td>
 			<td>{game.users.length}/2</td>
 		</tr>

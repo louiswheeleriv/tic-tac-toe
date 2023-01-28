@@ -18,4 +18,8 @@ class Game < ApplicationRecord
   enum status: [:pending, :in_progress, :complete, :canceled]
 
   MAX_PLAYERS = 2
+
+  after_create do
+    GamesChannel.broadcast_new_game(self)
+  end
 end

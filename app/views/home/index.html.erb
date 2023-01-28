@@ -9,3 +9,24 @@
 
 <div id="root"></div>
 <%= javascript_pack_tag 'home/games' %>
+
+<script>
+  App.cable.subscriptions.create("GamesChannel", {
+    connected() {
+      console.log("Connected to channel: ", this);
+    },
+    disconnected() {
+      console.log("Disconnected");
+    },
+    received(data) {
+      console.log('Received game with ID: ' + data.game.id);
+      $('#games-table tr:last').after(
+        '<tr key="'+data.game.id+'">' +
+          '<td>'+(new Date(data.game.created_at).toLocaleString())+'</td>' +
+          '<td>'+data.game.status.toUpperCase()+'</td>' +
+          '<td>'+data.game.users.length+'/2</td>' +
+        '</tr>'
+      );
+    }
+  });
+</script>
