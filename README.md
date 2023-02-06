@@ -1,24 +1,15 @@
-# README
+# tic-tac-toe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Implementation of a simple game supporting multiple simultaneous multiplayer games using websockets.
 
-Things you may want to cover:
+## Running the Server
 
-* Ruby version
+Run the redis server:
+```bash
+$ redis-server
+```
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Run the rails server:
+```bash
+$ rails s
+```
